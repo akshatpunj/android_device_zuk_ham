@@ -37,3 +37,7 @@ ro.ril.em_redial_vt_failover=true
 # Factory reset protection
 ro.frp.pst=/dev/block/platform/msm_sdcc.1/by-name/frp
 
+# Qualcomm® aptX™
+persist.bt.enableAptXHD=true
+persist.service.btui.use_aptx=1
+persistent.bt.a2dp_offload_cap=sbc-aptx-aptXHD
