@@ -118,6 +118,9 @@ HAVE_ADRENO_SOURCE		 	:= false
 NUM_FRAMEBUFFER_SURFACE_BUFFERS  	:= 3
 TARGET_USES_HWC2 		 	:= true
 TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS  := true
+SF_VSYNC_EVENT_PHASE_OFFSET_NS   	:= 5000000
+VSYNC_EVENT_PHASE_OFFSET_NS      	:= 7500000
+
 
 # Shader cache config options
 # Maximum size of the  GLES Shaders that can be cached for reuse.
