@@ -38,6 +38,7 @@ TARGET_ARCH_VARIANT 	   := armv7-a-neon
 TARGET_CPU_ABI 		   := armeabi-v7a
 TARGET_CPU_ABI2 	   := armeabi
 TARGET_CPU_VARIANT 	   := krait
+TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 TARGET_CPU_SMP 		   := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
 
@@ -68,7 +69,7 @@ BOARD_USES_QCOM_HARDWARE := true
 TARGET_USES_LEGACY_ADB_INTERFACE := true
 
 # Audio
-USE_CUSTOM_AUDIO_POLICY 		   := 1
+USE_CUSTOM_AUDIO_POLICY 		   := 0
 BOARD_USES_ALSA_AUDIO 			   := true
 AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
 AUDIO_FEATURE_ENABLED_HWDEP_CAL 	   := true
@@ -194,8 +195,8 @@ ADD_RADIO_FILES := true
 PRODUCT_BOOT_JARS += telephony-ext
 
 # Use HW crypto for ODE
-TARGET_HW_DISK_ENCRYPTION 	 := true
-TARGET_LEGACY_HW_DISK_ENCRYPTION := true
+TARGET_HW_DISK_ENCRYPTION 	 := false
+TARGET_LEGACY_HW_DISK_ENCRYPTION := false
 
 # Added to indicate that protobuf-c is supported in this build
 PROTOBUF_SUPPORTED := true
@@ -215,12 +216,7 @@ endif
 # Use Snapdragon LLVM Compiler
 TARGET_USE_SDCLANG := true
 
-# SELinux policies
-# qcom sepolicy
-include device/qcom/sepolicy/sepolicy.mk
-include device/qcom/sepolicy/legacy-sepolicy.mk
-
-BOARD_SEPOLICY_DIRS += \
-    $(DEVICE_PATH)/sepolicy
-
 -include vendor/zuk/ham/BoardConfigVendor.mk
+
+# Enable workaround for slow rom flash
+BOARD_SUPPRESS_SECURE_ERASE := true

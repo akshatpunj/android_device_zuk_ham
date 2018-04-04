@@ -312,5 +312,4 @@ $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-3072-dalv
 # call hwui memory config
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-3072-hwui-memory.mk)
 
-# call the proprietary setup
-$(call inherit-product-if-exists, vendor/zuk/ham/ham-vendor.mk)
+

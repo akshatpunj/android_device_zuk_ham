@@ -14,21 +14,22 @@
 # limitations under the License.
 
 # Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
 # Inherit from ham device
 $(call inherit-product, device/zuk/ham/ham.mk)
+$(call inherit-product-if-exists, vendor/zuk/ham/ham-vendor.mk)
 
-# Inherit some common AEX stuff.
-$(call inherit-product, vendor/aosp/common.mk)
+# Inherit from our custom product configuration
+$(call inherit-product, vendor/du/config/common_full_phone.mk)
 
 # Boot animation
 TARGET_BOOT_ANIMATION_RES := 1080
 
-# AospExtended-BuildType
-EXTENDED_BUILD_TYPE := OFFICIAL
+# DirtyUnicorns-BuildType
+EXTENDED_BUILD_TYPE := UNOFFICIAL
 
-PRODUCT_NAME := aosp_ham
+PRODUCT_NAME := du_ham
 PRODUCT_DEVICE := ham
 PRODUCT_MANUFACTURER := ZUK
 PRODUCT_MODEL := ZUK Z1
